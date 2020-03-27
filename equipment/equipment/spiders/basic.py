@@ -3,6 +3,8 @@ import scrapy
 import requests
 from bs4 import BeautifulSoup
 
+import equipment.spiders.utils as md
+
 class BasicSpider(scrapy.Spider):
     name = 'basic'
     start_urls = ['http://www.yzj.cc/pro-list.asp?ppid=44']
@@ -17,9 +19,7 @@ class BasicSpider(scrapy.Spider):
             [link.get('href') for link in i][0])
         
         for item in big_list:
-            big_re = requests.get(item)
-            # 如果用 big_re.text 解析失败 
-            big_soup = BeautifulSoup(big_re.content, 'html.parser')
+            big_soup = md.get_page(item)
             soup_strainer = big_soup.findAll('div', class_="jianjie")
             summary = [i.get_text().replace('\n', '') for i in soup_strainer]
             summary = summary[0].replace('\t', '')

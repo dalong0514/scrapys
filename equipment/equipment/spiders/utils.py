@@ -13,7 +13,6 @@ bs_parser = 'html.parser'
 # bs_parser = 'lxml-xml'
 # bs_parser = 'html5lib'
 
-
 def get_page(url):
     try:
         r = requests.get(url)
