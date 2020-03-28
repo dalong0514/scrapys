@@ -40,12 +40,13 @@ class BasicSpider(scrapy.Spider):
     def parse_detail_pages(self, response):
         item = EquipmentItem()
 
-        raw_summarys = response.xpath('//div[@class="prjianjie"]/p/text()').extract()
-        summary = ''
-        for item in raw_summarys:
-            item = item.strip()
-            summary = summary + re.sub('[\r\t\n]', '', item)
-        item['summary'] = summary
+        # raw_summarys = response.xpath('//div[@class="prjianjie"]/p/text()').extract()
+        # summarys = []
+        # for item in raw_summarys:
+        #     item = item.strip()
+        #     summarys.append(re.sub('[\r\t\n]', '', item))
+        # item['briefinfo'] = ''.join(summarys)
+        item['briefinfo'] = ''.join(response.xpath('//div[@class="prjianjie"]/p/text()').extract())
 
         item['bigclass'] = response.xpath('//div[@class="wz_title"]/text()').extract()[0]
         item['title'] = response.xpath('//h1/text()').extract()[0]

@@ -14,6 +14,12 @@ BOT_NAME = 'equipment'
 SPIDER_MODULES = ['equipment.spiders']
 NEWSPIDER_MODULE = 'equipment.spiders'
 
+# the encoding_format of outfile
+FEED_EXPORT_ENCODING = 'utf-8'
+
+# the user_agent information
+USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.100 Safari/537.36'
+
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
 
