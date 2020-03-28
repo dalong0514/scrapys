@@ -3,7 +3,7 @@ import scrapy
 import requests
 from bs4 import BeautifulSoup
 
-import equipment.spiders.utils as md
+import equipment.spiders.utilmodule as util
 
 class BasicSpider(scrapy.Spider):
     name = 'basic'
@@ -19,7 +19,7 @@ class BasicSpider(scrapy.Spider):
             [link.get('href') for link in i][0])
         
         for item in big_list:
-            big_soup = md.get_page(item)
+            big_soup = util.get_page(item)
             soup_strainer = big_soup.findAll('div', class_="jianjie")
             summary = [i.get_text().replace('\n', '') for i in soup_strainer]
             summary = summary[0].replace('\t', '')
