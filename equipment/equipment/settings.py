@@ -15,7 +15,7 @@ SPIDER_MODULES = ['equipment.spiders']
 NEWSPIDER_MODULE = 'equipment.spiders'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 # This reduces the speed of the spider

@@ -17,3 +17,4 @@ class EquipmentItem(scrapy.Item):
     summary = scrapy.Field()
     url = scrapy.Field()
     content = scrapy.Field()
+    bigclass = scrapy.Field()
