@@ -20,8 +20,6 @@ class BasicSpider(scrapy.Spider):
             yield response.follow(url, callback=self.parse_bigli_pages)
 
     def parse_bigli_pages(self, response):
-        # raw_summary = response.xpath('//div[@class="jianjie"]/text()').extract()[0].strip()
-        # item['summary'] = re.sub('[\r\t\n]', '', raw_summary)
 
         raw_urls = response.xpath('//a[@class="jzimg fl"]/@href').extract()
         urls = []
@@ -40,16 +38,15 @@ class BasicSpider(scrapy.Spider):
     def parse_detail_pages(self, response):
         item = EquipmentItem()
 
-        # raw_summarys = response.xpath('//div[@class="prjianjie"]/p/text()').extract()
-        # summarys = []
-        # for item in raw_summarys:
-        #     item = item.strip()
-        #     summarys.append(re.sub('[\r\t\n]', '', item))
-        # item['briefinfo'] = ''.join(summarys)
-        item['briefinfo'] = ''.join(response.xpath('//div[@class="prjianjie"]/p/text()').extract())
+        briefinfo = ''.join(response.xpath('//div[@class="prjianjie"]/p/text()').extract())
+        item['briefinfo'] = re.sub('[\r\t]', '',briefinfo)
 
         item['bigclass'] = response.xpath('//div[@class="wz_title"]/text()').extract()[0]
         item['title'] = response.xpath('//h1/text()').extract()[0]
+
+        intro = ''.join(response.xpath('(//div[@class="showpr_msg"]//h3/text()) | (//div[@class="showpr_msg"]//p/text()) | (//div[@class="showpr_msg"]//a/text()) | (//div[@class="showpr_msg"]//span/text())').extract())
+        intro = re.sub('[\t\r\xa0]', '', intro)
+        item['intro'] = re.sub(' ', '', intro)
 
         yield item
         

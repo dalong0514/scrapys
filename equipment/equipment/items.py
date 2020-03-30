@@ -17,3 +17,4 @@ class EquipmentItem(scrapy.Item):
     content = scrapy.Field()
     bigclass = scrapy.Field()
     briefinfo = scrapy.Field()
+    intro = scrapy.Field()
