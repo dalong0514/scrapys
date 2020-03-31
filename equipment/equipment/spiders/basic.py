@@ -48,5 +48,9 @@ class BasicSpider(scrapy.Spider):
         intro = re.sub('[\t\r\xa0]', '', intro)
         item['intro'] = re.sub(' ', '', intro)
 
+        item['devicetype'] = response.xpath('(//td/div/text()) | (//td/div/div/text())').extract()
+
+        item['breakdown'] = response.xpath('//td/p/text()').extract()
+
         yield item
         
