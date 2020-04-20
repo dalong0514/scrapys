@@ -11,4 +11,13 @@ import scrapy
 class BlogItem(scrapy.Item):
     # define the fields for your item here like:
     # name = scrapy.Field()
-    pass
+    title = scrapy.Field()
+    author = scrapy.Field()
+    date = scrapy.Field()
+    url = scrapy.Field()
+    content = scrapy.Field()
+    bigclass = scrapy.Field()
+    briefinfo = scrapy.Field()
+    intro = scrapy.Field()
+    devicetype = scrapy.Field()
+    breakdown = scrapy.Field()
