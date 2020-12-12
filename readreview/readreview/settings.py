@@ -18,7 +18,7 @@ NEWSPIDER_MODULE = 'readreview.spiders'
 FEED_EXPORT_ENCODING = 'utf-8'
 
 # the user_agent information
-USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.100 Safari/537.36'
+USER_AGENT = 'Mozilla/5.0 (Macintosh; Intel Mac OS X 11_0_1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/87.0.4280.88 Safari/537.36'
 
 # Middlewares need to be activated
 # DOWNLOADER_MIDDLEWARES = { 'readreview.middlewares.CustomDownloader': 500 }

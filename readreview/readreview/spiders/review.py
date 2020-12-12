@@ -5,7 +5,7 @@ import re
 
 class ReviewSpider(scrapy.Spider):
     name = 'review'
-    start_urls = ['https://book.douban.com/subject/1230036/reviews']
+    start_urls = ['https://book.douban.com/subject/30210444/reviews']
 
     def parse(self, response):
         urls = response.xpath('//div[@class="main-bd"]/h2/a')
